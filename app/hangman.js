@@ -1,9 +1,11 @@
- app.controller("controladorPrincipal", ["$scope", "$http", function($scope, $http) {
+
+ app.controller("controladorPrincipal", ['$rootScope',"$scope", "$http", function($rootScope,$scope, $http) {
       $scope.letter = '';
       $scope.health = 6;
       $scope.revealed = "";
       $scope.hasWon = false;
-  
+      $scope.uidModel = $rootScope.uid
+
   $scope.hasFinished = function() { 
      return $scope.health == 0 || $scope.hasWon;
   };
@@ -13,9 +15,13 @@
   };
   
   $scope.submitLetter = function() {
-     var data = { letter: $scope.letter };
+     var data = { 
+        'letter' : $scope.letter ,
+        'uidModel' : $rootScope.uid
+      };
      $http.post('partials/play.php', data).then(processResponse);
      $scope.letter = '';
+     $scope.uidModel = $rootScope.uid
   };
   
   $scope.init();

@@ -4,9 +4,15 @@ class Game
 	public $word;
 	public $health;
 	public $revealed;
-	
+	private $conn;
+
 	function __construct($word)
-	{
+	{		
+		/*require_once '../api/v1/dbConnect.php';
+
+        $db = new dbConnect();
+        $this->conn = $db->connect();*/
+
 		$this->word= $word;
 		$this->revealed=str_repeat("_",strlen($word));
 		$this->health = 6;
@@ -30,7 +36,7 @@ class Game
 			$this->health--;			
 	}
 	
-	public function hasFinished()
+	public function hasFinished($uidParams)
 	{
 		return ($this->health === 0) or $this->hasBeenRevealed();
 	}

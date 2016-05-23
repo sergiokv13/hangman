@@ -43,10 +43,10 @@ app.config(['$routeProvider',
                     $rootScope.name = results.name;
                     $rootScope.email = results.email;
                     $rootScope.gamesWin = results.gamesWin;
-
-                } else {
-                    var nextUrl = next.$$route.originalPath;
-                    if (nextUrl == '/signup' || nextUrl == '/login') {
+                } 
+                else {
+                var nextUrl = next.$$route.originalPath;
+                if (nextUrl == '/signup' || nextUrl == '/login') {
 
                     } else {
                         $location.path("/login");

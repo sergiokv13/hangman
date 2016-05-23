@@ -60,10 +60,10 @@ public function getSession(){
         $result = mysqli_query($this->conn, "SELECT gamesWin,gamesLost FROM users_auth WHERE uid=$limit");   
         while($row = mysqli_fetch_assoc($result))
             $test[] = $row; 
-     
-        $sess["gamesWin"] =  $test[0];
-
-
+        $record = $test[0];
+        $sess["gamesWin"] =  $record;
+        //$decod = json_decode($record, true);
+        //$sess["gamesWin"] = 0;
     }
     else
     {
@@ -74,6 +74,7 @@ public function getSession(){
     }
     return $sess;
 }
+
 public function destroySession(){
     if (!isset($_SESSION)) {
     session_start();

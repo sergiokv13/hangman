@@ -1,7 +1,7 @@
 
 <div class="page-content">
     <div class="row">
-        <div class="space-6"></div>
+    <div class="space-6"></div>
         <div class="col-sm-6 col-sm-offset-1">
             <div id="login-box" class="login-box visible widget-box no-border">
                 <div class="widget-body">
@@ -49,7 +49,7 @@
                                 <label class="col-sm-5 control-label no-padding-right" for="name">Nombre Completo</label>
                                 <div class="col-sm-7">
                                     <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Nombre" name="namee" ng-model="signup.name" ng-minlength="4"/>
+                                <input type="text" class="form-control" placeholder="Nombre" name="namee" ng-model="signup.name" ng-minlength="4"  required/>
                                 <p ng-show="signupForm.namee.$error.minlength" class="help-block">El nombre es muy corto.</p>
                             </span>
                                 </div>
@@ -59,7 +59,7 @@
                                 <label class="col-sm-5 control-label no-padding-right" for="name">Numero tarjeta de credito</label>
                                 <div class="col-sm-7">
                                     <span class="block input-icon input-icon-right">
-                                    <input type="text" name="numTarjCred" class="form-control" ng-model="signup.tarj" placeholder="XXXX-XXXXX-XXXXX" ng-minlength="13" ng-maxlength="16"/>
+                                    <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="numTarjCred" class="form-control" ng-model="signup.tarj" placeholder="XXXX-XXXXX-XXXXX" ng-minlength="13" ng-maxlength="16"  required/>
                                     <p ng-show="signupForm.numTarjCred.$error.minlength" class="help-block">El numero de tarjeta es muy corto.</p>
                                     <p ng-show="signupForm.numTarjCred.$error.maxlength" class="help-block">El numero de tarjeta es muy largo.</p>
                             </span>
@@ -81,32 +81,24 @@
                             <div class="form-group">
                                 <label class="col-sm-5 control-label no-padding-right" for="name">Codigo de seguridad</label>
                                 <div class="col-sm-7">
-                                    <span class="block input-icon input-icon-right">
-                                   <input type="text" name="codSeg" class="form-control" ng-model="signup.cod" ng-minlength="2" ng-maxlength="4">
+                                <span class="block input-icon input-icon-right">
+                                   <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="codSeg" class="form-control" ng-model="signup.cod" ng-minlength="2" ng-maxlength="4"  required>
                                         <p ng-show="signupForm.codSeg.$error.minlength" class="help-block">El codigo de seguridad es muy corto.</p>
                                         <p ng-show="signupForm.codSeg.$error.maxlength" class="help-block">El codigo de seguridad es muy largo.</p>
+                                    </span>
                                 </div>
-                                </span>
-                                </div>
+                                
                             </div>
-
+                    
                             <div class="form-group">
                                 <label class="col-sm-5 control-label no-padding-right" for="name">Fecha de expiracion</label>
                                 <div class="col-sm-7">
                                 <span class="block input-icon input-icon-right">
-                                    <input type="date" id="date" name="input" ng-model="signup.date"
-                                       placeholder="yyyy-MM-dd" min="2016-05-01" required />
-                                   <div role="alert">
-                                     <span class="error" ng-show="signupForm.date.$error.required">
-                                         Required!</span>
-                                     <span class="error" ng-show="signupForm.date.$error.date">
-                                         Not a valid date!</span>
-                                    </div>
+                                    <input type="date" id="date" name="date" ng-model="signup.date"
+                                        min="2016-05-01" required />
                                  </span>
                                 </div>
                             </div>
-
-
                             <div class="form-group">
                                 <span class="lbl col-sm-5"> </span>
                                 <div class="col-sm-7">
@@ -115,10 +107,11 @@
                                     </button>
                                 </div>
                             </div>
-                            </fieldset>
+                            
                             <span class="lbl col-sm-5"> </span>
                             <div class="col-sm-7">Ya tiene cuenta? <a href="#/login">Iniciar sesion</a>
                             </div>
+
                         </form>
                     </div>
                 </div>

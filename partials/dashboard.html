@@ -1,29 +1,40 @@
-<br/>Nombre: {{name}}
-<br/>Email: {{email}}
-<br/>{{gamesWin}}
-<br/>
-<a ng-click="logout();">Cerrar sesion.</a>
-<div class="page-content" ng-controller="controladorPrincipal">
-    <div class="row">
-        <div class="space-6"></div>
-       
-        <div class="userInput" ng-hide="hasFinished()" style=" margin:20px;">
-            <div class="revealed" style=" margin:20px;letter-spacing:0.5em;">
-              {{ revealed }}
-            </div>
-            
-            <form ng-submit="submitLetter()">
-                <input type ="text" id="letterTextBox" name="letterTextBox" maxlength="1" size="1" ng-model="letter" autofocus />
-                <input type ="submit" id="tryButton" name="tryButton" value="Intentar" />
-            </form>       
-        </div>
-        <div ng-show="hasFinished()">
-            <div ng-show="hasWon">Ganaste</div>
-            <div ng-show="!hasWon">Perdiste</div>
-         <a href="" ng-click="init()">Volver a jugar</a>
-        </div>  
-         <img class="health" ng-src="{{ 'partials/img/' + health+ '.png' }}" />
-    </div>
+<div class="row text-center">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8" style="background-color:grey; border-radius:5px;color:white;">
+    <br/>Id: {{uid}}
+    <br/>Nombre: {{name}}
+    <br/>Email: {{email}}
+    <br/>Juegos Ganados:{{gamesWin['gamesWin']}}
+    <br/>Juegos Perdidos:{{gamesWin['gamesLost']}}
+    <br/>
+    <a ng-click="logout();">Cerrar sesion.</a>
 </div>
+</div>
+
+    <div class="page-content" ng-controller="controladorPrincipal">
+        <div class="row text-center">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <div class="userInput" ng-hide="hasFinished()" style=" margin:20px;">
+                <div class="revealed" style=" margin:20px;letter-spacing:0.5em;">
+                  {{ revealed }}
+                </div>
+                
+                <form ng-submit="submitLetter()">
+                    <input type ="text" id="letterTextBox" name="letterTextBox" maxlength="1" size="1" ng-model="letter" autofocus />
+                    <input hidden="true" type ="text" id="uidTextBox" name="uidTextBox" maxlength="3" size="3" ng-model="uidModel" />
+                    <input class="btn btn-default" type ="submit" id="tryButton" name="tryButton" value="Intentar" />
+                </form>       
+            </div>
+            <div ng-show="hasFinished()" style="background-color:grey; border-radius:5px;color:white; margin-top:10px;">
+                <div ng-show="hasWon">Ganaste</div>
+                <div ng-show="!hasWon">Perdiste</div>
+             <a href='#' onclick='location.reload(true); return false;'>Volver a jugar</a>
+            </div>  
+             <img class="health img-responsive" ng-src="{{ 'partials/img/' + health+ '.png' }}" />
+        </div>
+        </div>
+    </div>
+
 
 

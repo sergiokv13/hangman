@@ -4,7 +4,7 @@ function createConnection()
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$database = "hangman"; 
+	$database = "hangmanLogin"; 
 
 	$conn = mysqli_connect($servername, $username, $password, $database);
 

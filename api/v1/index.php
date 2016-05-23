@@ -33,7 +33,7 @@ function verifyRequiredParams($required_fields,$request_params) {
         $app = \Slim\Slim::getInstance();
         $response["status"] = "error";
         $response["message"] = 'Required field(s) ' . substr($error_fields, 0, -2) . ' is missing or empty';
-        echoResponse(200, $response);
+        
         $app->stop();
     }
 }
